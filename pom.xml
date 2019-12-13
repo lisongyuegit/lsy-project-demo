@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lsy.mode</groupId>
-    <artifactId>lsy-demo</artifactId>
+    <artifactId>lsy-project-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>lsy-demo</name>
     <description>Demo project for Spring Boot</description>
