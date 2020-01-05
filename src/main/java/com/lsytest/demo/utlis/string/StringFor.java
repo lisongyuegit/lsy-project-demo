@@ -15,7 +15,7 @@ public class StringFor {
 		//list = null;
 		if(null != list && list.size()>0) {
 			for(int i = 0 ; i < list.size() ; i++){
-				System.out.println("ÕýÔÚÊä³ö: "+i);
+				System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: "+i);
 			}
 		}
 
