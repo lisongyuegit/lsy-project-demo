@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * 数据导入导出场景枚举定义
- * @author chenyanfa@edenep.net
+ * @author chenyanfa@lsybase.net
  * @version 2.0
  * @description:
  * @copyright: Copyright (c) 2017

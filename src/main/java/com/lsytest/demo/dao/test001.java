@@ -1,7 +1,7 @@
 package com.lsytest.demo.dao;
 
 /**
- * @author: lisongyue@edenep.net
+ * @author: lisongyue@lsybase.net
  * @company: Eden Technology
  * @motto: 代码也可以是一种艺术
  * @version: 1.0
