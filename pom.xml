@@ -19,6 +19,7 @@
     </properties>
 
     <dependencies>
+        <!--
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -29,19 +30,20 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--单测-->
+        -->
+        <!--单测
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <!--jdbc -->
+-->
+        <!--jdbc
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
-
+-->
         <!-- mysql驱动 -->
         <dependency>
             <groupId>mysql</groupId>
@@ -115,8 +117,10 @@
     <build>
         <plugins>
             <plugin>
+                <!--
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                -->
             </plugin>
         </plugins>
         <!-- 如果不添加此节点mybatis的mapper.xml文件都会被漏掉。
