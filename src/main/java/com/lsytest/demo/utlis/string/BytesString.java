@@ -1,4 +1,4 @@
-package string;
+package com.lsytest.demo.utlis.string;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;

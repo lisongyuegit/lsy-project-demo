@@ -1,13 +1,12 @@
-package string;
+package com.lsytest.demo.utlis.string;
 
 public class Entity2 {
-	/** ·ú»¯Îï */
 	private String fluoride = "";
-	/** Çè»¯Îï */
+	/** ï¿½è»¯ï¿½ï¿½ */
 	private String cyanide = "";
-	/** °±µª */
+	/** ï¿½ï¿½ï¿½ï¿½ */
 	private String nh3n = "";
-	/** Ê¯ÓÍÀà */
+	/** Ê¯ï¿½ï¿½ï¿½ï¿½ */
 	private String petroleum = "";
 	/** Í­(Cu) */
 	private String copper = "";
@@ -15,13 +14,13 @@ public class Entity2 {
 	private String lead = "";
 	/** Ð¿(Zn) */
 	private String zinc = "";
-	/** ïÓ(Cd) */
+	/** ï¿½ï¿½(Cd) */
 	private String cadmium = "";
-	/** Éé(As) */
+	/** ï¿½ï¿½(As) */
 	private String arsenic = "";
-	/** Ë®ÎÂ */
+	/** Ë®ï¿½ï¿½ */
 	private String watertemp = "";
-	/** Á÷Á¿ */
+	/** ï¿½ï¿½ï¿½ï¿½ */
 	private String flowrate = "";
 	public String getFluoride() {
 		return fluoride;

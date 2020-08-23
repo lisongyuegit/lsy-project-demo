@@ -1,4 +1,4 @@
-package string;
+package com.lsytest.demo.utlis.string;
 
 public class StringInt {
 public static void main(String[] args) {

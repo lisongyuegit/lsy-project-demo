@@ -1,4 +1,4 @@
-package string;
+package com.lsytest.demo.utlis.string;
 
 public class StringSplit {
 	public static void main(String[] args) {
