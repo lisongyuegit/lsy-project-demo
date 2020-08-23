@@ -12,10 +12,11 @@ import java.util.Map;
 //import org.springframework.jdbc.core.JdbcTemplate;
 
 @RestController
+@RequestMapping("/lsy/test")
 public class TestModeController {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    @RequestMapping(value = "/testRun",method = RequestMethod.GET)
+    @RequestMapping(value = "/run",method = RequestMethod.GET)
     public String testRun(@RequestParam Map map){
         String result = "";
         try{
