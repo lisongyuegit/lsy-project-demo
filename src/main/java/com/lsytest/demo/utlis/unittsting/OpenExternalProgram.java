@@ -1,4 +1,4 @@
-package unittsting;
+package com.lsytest.demo.utlis.unittsting;
 
 import java.io.IOException;
 
@@ -10,7 +10,6 @@ public class OpenExternalProgram {
 	 * @throws InterruptedException 
 	 */
 	public static void main(String[] args) throws IOException, InterruptedException {
-		//打开一个外部程序 
 		String youdaoNote = "D:\\Program Files\\Notepad++\\notepad++.exe";
 		for(int i = 0 ; i <= 60 ; i++){
 			//Thread.sleep(1000);
