@@ -24,12 +24,13 @@
         <!--            <version>1.27</version>-->
         <!--        </dependency>-->
         <!-- https://mvnrepository.com/artifact/org.csource/fastdfs-client-java -->
+        <!--
         <dependency>
             <groupId>org.csource</groupId>
             <artifactId>fastdfs-client-java</artifactId>
             <version>1.27-RELEASE</version>
         </dependency>
-
+-->
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
