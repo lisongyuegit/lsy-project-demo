@@ -1,4 +1,4 @@
-package string;
+package com.lsytest.demo.utlis.string;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class StringTest {
 public static void main(String[] args) {
-	String filename = "À³¿¨»úÆ÷ÈË";
+	String filename = " ";
 	System.out.println("test1:"+filename);
 	filename = setFileName(filename);
 	System.out.println("test2:"+filename);
