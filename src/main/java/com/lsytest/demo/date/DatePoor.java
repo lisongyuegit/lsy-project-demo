@@ -1,4 +1,4 @@
-//package date;
+//package com.lsytest.demo.date;
 //
 //import constant.DateConstant;
 //
@@ -30,10 +30,10 @@
 //	}
 //	/**
 //	 * 计算传入时间和当前时间差
-//	 * @param date
+//	 * @param com.lsytest.demo.date
 //	 * @return
 //	 */
-//	public static String getDatePoor(String date){
+//	public static String getDatePoor(String com.lsytest.demo.date){
 //		String resultsStr = "";
 //		StringBuffer strBuf = new StringBuffer("");
 //		//余数
@@ -42,7 +42,7 @@
 //		Date nowDate = new Date();
 //		try {
 //			//转换入参时间
-//			Date endDate = DateConstant.sdf2.parse(date);
+//			Date endDate = DateConstant.sdf2.parse(com.lsytest.demo.date);
 ////			System.out.println("计算时间为: "+DateConstant.sdf.format(endDate));
 ////			System.out.println("当前时间为: "+DateConstant.sdf.format(nowDate));
 //			//计算时间差

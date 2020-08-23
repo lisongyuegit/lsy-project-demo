@@ -223,8 +223,8 @@
 //		else if(cell.getCellType() == CellType.NUMERIC) {
 //			if(HSSFDateUtil.isCellDateFormatted(cell)) {
 //				double d = cell.getNumericCellValue();
-//				Date date = HSSFDateUtil.getJavaDate(d);
-//				cellValue = sFormat.format(date);
+//				Date com.lsytest.demo.date = HSSFDateUtil.getJavaDate(d);
+//				cellValue = sFormat.format(com.lsytest.demo.date);
 //			}
 //			else {
 //				cellValue = decimalFormat.format((cell.getNumericCellValue()));

@@ -34,10 +34,10 @@ public class LastMonth {
 	    String year = String.valueOf(date.get(Calendar.YEAR));
 	    String month = String.valueOf((date.get(Calendar.MONTH)+1));
 	    date.add(Calendar.MONTH, -1);
-	   // year = String.valueOf(date.get(Calendar.YEAR));
+	   // year = String.valueOf(com.lsytest.demo.date.get(Calendar.YEAR));
 	    String lastMonth = String.valueOf(date.get(Calendar.MONTH)+1);
 	    date.add(Calendar.MONTH, -1);
-	   // year = String.valueOf(date.get(Calendar.YEAR));
+	   // year = String.valueOf(com.lsytest.demo.date.get(Calendar.YEAR));
 	    String llMonth = String.valueOf(date.get(Calendar.MONTH)+1);
 	    System.out.println("��ǰ���Ϊ: "+year+" ��ǰ�·�Ϊ: "+month+"����Ϊ: "+lastMonth+" ������Ϊ: "+llMonth);
 		

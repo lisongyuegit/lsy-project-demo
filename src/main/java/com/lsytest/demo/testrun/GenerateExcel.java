@@ -98,7 +98,7 @@
 //                case "合同结束日期":
 //                case "毕业时间":
 //                    dataValidationConstraint = new XSSFDataValidationConstraint(DataValidationConstraint.ValidationType.DATE,
-//                            DataValidationConstraint.OperatorType.GREATER_OR_EQUAL, "date(1970,1,1)", null);
+//                            DataValidationConstraint.OperatorType.GREATER_OR_EQUAL, "com.lsytest.demo.date(1970,1,1)", null);
 //                    errMsg = "日期格式有误。示例：2018/01/01 或 2018-01-01";
 //                    tip = "示例：2018/01/01 或 2018-01-01";
 //                    break;

@@ -20,7 +20,7 @@
 // * @company: Eden Technology
 // * @motto: 代码也可以是一种艺术
 // * @version: 1.0
-// * @date: 2020/8/6 11:18
+// * @com.lsytest.demo.date: 2020/8/6 11:18
 // */
 //@RestController
 //public class FastDFSUtil {
