@@ -1,4 +1,4 @@
-package date;
+package com.lsytest.demo.utlis.date;
 
 import java.io.ObjectInputStream.GetField;
 import java.text.DateFormat;
@@ -20,14 +20,14 @@ public class LastMonth {
 	  Date  nowData = new Date ();
 	  Calendar date = Calendar.getInstance();
 	  String month = String.valueOf(date.get(Calendar.MONTH)-1);
-	  System.out.println("ÔÂ·ÝÎª: "+month);
+	  System.out.println("ï¿½Â·ï¿½Îª: "+month);
 	  date.setTime(nowData);
 	  date.add(Calendar.MONTH, -2);
 
 	  String b2 = String.valueOf(date.get(Calendar.MONTH)+1);
 	  System.out.println("test: "+b2);
 	  String bb = dateFormat.format((date.getTime()));
-	  System.out.println("×ª±äºó: "+bb);
+	  System.out.println("×ªï¿½ï¿½ï¿½: "+bb);
   }
   public static void testa(){
 	  Calendar date = Calendar.getInstance();
@@ -39,11 +39,11 @@ public class LastMonth {
 	    date.add(Calendar.MONTH, -1);
 	   // year = String.valueOf(date.get(Calendar.YEAR));
 	    String llMonth = String.valueOf(date.get(Calendar.MONTH)+1);
-	    System.out.println("µ±Ç°Äê·ÝÎª: "+year+" µ±Ç°ÔÂ·ÝÎª: "+month+"ÉÏÔÂÎª: "+lastMonth+" ÉÏÉÏÔÂÎª: "+llMonth);
+	    System.out.println("ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Îª: "+year+" ï¿½ï¿½Ç°ï¿½Â·ï¿½Îª: "+month+"ï¿½ï¿½ï¿½ï¿½Îª: "+lastMonth+" ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª: "+llMonth);
 		
    }
   /**
-   * »ñÈ¡µ±Ìì¿ªÊ¼Ê±¼ä
+   * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ì¿ªÊ¼Ê±ï¿½ï¿½
    */
    public static void getStartTime() {
 		Calendar todayStart = Calendar.getInstance();
@@ -55,7 +55,7 @@ public class LastMonth {
 		System.out.println(date);
 	}
    /**
-    * »ñÈ¡µ±Ìì×îÍíÊ±¼ä
+    * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
     */
 	public static void getNowEndTime() {
 		Calendar todayEnd = Calendar.getInstance();
@@ -68,13 +68,13 @@ public class LastMonth {
 	}
 
 	/** 
-	 * È¡µÃµ±ÔÂÌìÊý 
+	 * È¡ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	 * */  
 	public static int getCurrentMonthLastDay()  
 	{  
 	    Calendar a = Calendar.getInstance();  
-	    a.set(Calendar.DATE, 1);//°ÑÈÕÆÚÉèÖÃÎªµ±ÔÂµÚÒ»Ìì  
-	    a.roll(Calendar.DATE, -1);//ÈÕÆÚ»Ø¹öÒ»Ìì£¬Ò²¾ÍÊÇ×îºóÒ»Ìì  
+	    a.set(Calendar.DATE, 1);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½Âµï¿½Ò»ï¿½ï¿½  
+	    a.roll(Calendar.DATE, -1);//ï¿½ï¿½ï¿½Ú»Ø¹ï¿½Ò»ï¿½ì£¬Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½  
 	    int maxDate = a.get(Calendar.DATE);  
 	    return maxDate;  
 	}
