@@ -43,4 +43,14 @@ public enum TaskStatusEnum {
         }
         throw new BusinessException(-1,"TaskStatusEnum:参数有误");
     }
+    public static String checkValue(String value){
+        List<TaskStatusEnum> list = Arrays.asList(TaskStatusEnum.values());
+        for(TaskStatusEnum tempEnum : list){
+            if(tempEnum.getValue().equals(value)){
+                return tempEnum.getLabel();
+            }
+
+        }
+        throw new BusinessException(-1,"TaskStatusEnum:参数有误");
+    }
 }

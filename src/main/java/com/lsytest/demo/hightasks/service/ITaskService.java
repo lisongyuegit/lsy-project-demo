@@ -14,16 +14,19 @@ import java.util.Map;
  * @version: 1.0
  * @date: 2019/10/9 21:05
  */
-public interface ITaskService extends IService<TaskEntity>{
+public interface ITaskService extends IService<TaskEntity> {
     /**
      * 新增任务信息
+     *
      * @param queryMap
      * @param baseDTO
      * @return
      */
     ResultVo queryList(Map<String, Object> queryMap, BaseDTO baseDTO);
+
     /**
      * 新增任务信息
+     *
      * @param taskEntity
      * @param baseDTO
      * @return
@@ -32,6 +35,7 @@ public interface ITaskService extends IService<TaskEntity>{
 
     /**
      * 编辑任务信息
+     *
      * @param taskEntity
      * @param baseDTO
      * @return

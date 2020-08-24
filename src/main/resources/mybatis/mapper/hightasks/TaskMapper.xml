@@ -43,6 +43,21 @@
             <if test="null != queryMap.taskName and '' != queryMap.taskName">
                 and t.task_name = #{queryMap.taskName}
             </if>
+            <if test="null != queryMap.taskLevel and '' != queryMap.taskLevel">
+                and t.task_level = #{queryMap.taskLevel}
+            </if>
+            <if test="null != queryMap.taskStatus and '' != queryMap.taskStatus">
+                and t.task_status = #{queryMap.taskStatus}
+            </if>
+            <if test="null != queryMap.notTaskStatus and '' != queryMap.notTaskStatus">
+                and t.task_status != #{queryMap.notTaskStatus}
+            </if>
+            <if test="null != queryMap.handle and '' != queryMap.handle">
+                and t.handle = #{queryMap.handle}
+            </if>
+            <if test="null != queryMap.startDate and '' != queryMap.startDate">
+                and date_format(t.start_date,'%Y-%m-%d ') >= #{queryMap.startDate}
+            </if>
         </where>
     </select>
 </mapper>

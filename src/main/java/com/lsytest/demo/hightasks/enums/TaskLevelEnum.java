@@ -39,4 +39,14 @@ public enum TaskLevelEnum {
         }
         throw new BusinessException(-1,"TaskLevelEnum:参数有误");
     }
+    public static String checkValue(String value){
+        List<TaskLevelEnum> list = Arrays.asList(TaskLevelEnum.values());
+        for(TaskLevelEnum tempEnum : list){
+            if(tempEnum.getValue().equals(value)){
+                return tempEnum.getLabel();
+            }
+
+        }
+        throw new BusinessException(-1,"TaskLevelEnum:参数有误");
+    }
 }

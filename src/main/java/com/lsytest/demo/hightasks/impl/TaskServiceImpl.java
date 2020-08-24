@@ -26,7 +26,7 @@ import java.util.Map;
  * @version: 1.0
  * @date: 2019/10/9 21:05
  */
-public class TaskServiceImpl extends ServiceImpl<TaskMapper, TaskEntity> implements ITaskService{
+public class TaskServiceImpl extends ServiceImpl<TaskMapper, TaskEntity> implements ITaskService {
     @Autowired
     private TaskMapper taskMapper;
 
@@ -39,12 +39,12 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, TaskEntity> impleme
      */
     @Override
     public ResultVo queryList(Map<String, Object> queryMap, BaseDTO baseDTO) {
-        Page<Map<String,Object>> page = new Page<>();
+        Page<Map<String, Object>> page = new Page<>();
         page.setCurrent(baseDTO.getCurrent());
         page.setSize(baseDTO.getPageSize());
-        List<Map<String,Object>>  respMapList = taskMapper.queryList(queryMap,page);
-        if(CollectionUtils.isNotEmpty(respMapList)){
-            for(Map<String,Object> tempMap:respMapList){
+        List<Map<String, Object>> respMapList = taskMapper.queryList(queryMap, page);
+        if (CollectionUtils.isNotEmpty(respMapList)) {
+            for (Map<String, Object> tempMap : respMapList) {
                 tempMap.put("taskLevelName", TaskLevelEnum.getLabel(ComUtil.objToStr(tempMap.get("taskLevel"))));
                 tempMap.put("taskStatusName", TaskStatusEnum.getLabel(ComUtil.objToStr(tempMap.get("taskStatus"))));
             }
