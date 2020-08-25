@@ -91,7 +91,7 @@ public class TaskController {
         return taskService.editTask(taskEntity, baseDTO);
     }
 
-    @PutMapping(value = "/finish")
+    @PostMapping(value = "/finish")
     public ResultVo finish(@ModelAttribute TaskEntity taskEntity, @ModelAttribute BaseDTO baseDTO) {
         ResultVo resultVo = new ResultVo();
         if (StringHelper.isBlank(taskEntity.getTaskId())) {

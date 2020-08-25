@@ -41,7 +41,7 @@
         <where>
             1=1
             <if test="null != queryMap.taskName and '' != queryMap.taskName">
-                and t.task_name = #{queryMap.taskName}
+                and t.task_name like CONCAT('%',#{queryMap.taskName},'%')
             </if>
             <if test="null != queryMap.taskLevel and '' != queryMap.taskLevel">
                 and t.task_level = #{queryMap.taskLevel}
