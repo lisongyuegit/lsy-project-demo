@@ -89,7 +89,7 @@
             <template slot-scope="scope">
                 <el-button @click="complete(scope.row.taskId)" type="text" size="small">完成</el-button>
                 <el-button type="text" size="small" @click="openAddEdit(scope.row)">编辑</el-button>
-                <el-button @click="handleClick(scope.row)" type="text" size="small">删除</el-button>
+                <el-button @click="deleteTask(scope.row.taskId)" type="text" size="small">删除</el-button>
             </template>
         </el-table-column>
 
@@ -275,6 +275,15 @@
                     taskId: taskId,
                 }
                 $.post('http://localhost:8088/lsy/demo/task/finish', params, (respones) => {
+                    console.log(respones, 333)
+                    this.getList()
+                })
+            },
+			deleteTask(taskId) {
+                const params = {
+                    taskId: taskId,
+                }
+                $.post('http://localhost:8088/lsy/demo/task/del', params, (respones) => {
                     console.log(respones, 333)
                     this.getList()
                 })

@@ -91,6 +91,34 @@ public class TaskController {
         return taskService.editTask(taskEntity, baseDTO);
     }
 
+    /**
+     * 编辑任务
+     *
+     * @param taskId
+     * @param baseDTO
+     * @return
+     */
+    @PostMapping(value = "del")
+    public ResultVo del(@RequestParam String taskId, @ModelAttribute BaseDTO baseDTO) {
+        ResultVo resultVo = new ResultVo();
+        if (StringHelper.isBlank(taskId)) {
+            resultVo.setError_no(-1);
+            resultVo.setError_info("taskId不能为空");
+            return resultVo;
+        }
+        EntityWrapper<TaskEntity> query = new EntityWrapper<>();
+        query.eq("task_Id", taskId);
+        TaskEntity respTask = taskService.selectOne(query);
+        if (null == respTask) {
+            resultVo.setError_no(-1);
+            resultVo.setError_info("任务不存在");
+            return resultVo;
+        }
+        taskService.deleteById(respTask.getId());
+        resultVo.setError_no(0);
+        return resultVo;
+    }
+
     @PostMapping(value = "/finish")
     public ResultVo finish(@ModelAttribute TaskEntity taskEntity, @ModelAttribute BaseDTO baseDTO) {
         ResultVo resultVo = new ResultVo();
