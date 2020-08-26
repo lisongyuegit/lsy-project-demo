@@ -207,6 +207,22 @@ public class TaskEntity implements Serializable {
         this.taskStatus = taskStatus;
     }
 
+    public String getTaskAnalysis() {
+        return taskAnalysis;
+    }
+
+    public void setTaskAnalysis(String taskAnalysis) {
+        this.taskAnalysis = taskAnalysis;
+    }
+
+    public String getTaskProgress() {
+        return taskProgress;
+    }
+
+    public void setTaskProgress(String taskProgress) {
+        this.taskProgress = taskProgress;
+    }
+
     public String getTaskIdNo(){
         return ComUtil.getNo();
     }
