@@ -40,9 +40,13 @@ public class TaskController {
         if (StringHelper.isBlank(ComUtil.objToStr(queryMap.get("startDate")))) {
             queryMap.put("startDate", LocalDate.now().toString());
         }
-//        if (StringHelper.isBlank(ComUtil.objToStr(queryMap.get("taskStatus")))) {
-//            queryMap.put("notTaskStatus", TaskStatusEnum.FINISH.getValue());
-//        }
+        if (StringHelper.isBlank(ComUtil.objToStr(queryMap.get("taskStatus")))) {
+            queryMap.put("notTaskStatus", TaskStatusEnum.FINISH.getValue());
+        }
+        if ("00".equals(ComUtil.objToStr(queryMap.get("taskStatus")))) {
+            queryMap.remove("taskStatus");
+            queryMap.remove("notTaskStatus");
+        }
         if (StringHelper.isNotBlank(ComUtil.objToStr(queryMap.get("taskStatus")))) {
             TaskStatusEnum.checkValue(ComUtil.objToStr(queryMap.get("taskStatus")));
         }

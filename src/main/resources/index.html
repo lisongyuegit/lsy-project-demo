@@ -44,6 +44,7 @@
             <el-option label="不重要-不紧急" value="4"></el-option>
         </el-select>
         <el-select v-model="filterForm.taskStatus" placeholder="请选择任务状态">
+			<el-option label="全部" value="00"></el-option>
             <el-option label="进行中" value="1"></el-option>
             <el-option label="计划中" value="2"></el-option>
             <el-option label="完成" value="9"></el-option>
@@ -74,6 +75,8 @@
         </el-table-column>
         -->
         <el-table-column prop="taskAnalysis" label="任务分析">
+        </el-table-column>
+		 <el-table-column prop="taskProgress" label="任务进展">
         </el-table-column>
         <el-table-column prop="handle" label="当前处理人">
         </el-table-column>
@@ -254,12 +257,14 @@
                     taskLevel: this.filterForm.taskLevel,
                     taskName: this.filterForm.taskName,
                     taskStatus: this.filterForm.taskStatus,
+					taskAnalysis: this.filterForm.taskAnalysis,
+					taskProgress: this.filterForm.taskProgress,
                     current: this.filterForm.current,
                     pageSize: 20
                 }
 
 
-                $.get('http://121.36.166.78:8088/lsy/demo/task/list', params, (respones) => {
+                $.get('http://localhost:8088/lsy/demo/task/list', params, (respones) => {
 
                     this.tableData = respones.result.records
                 })
@@ -271,22 +276,32 @@
                     taskName: this.addEditForm.taskName,
                     taskLevel: this.addEditForm.taskLevel,
 					taskAnalysis: this.addEditForm.taskAnalysis,
+					taskProgress: this.addEditForm.taskProgress,
                     handle: this.addEditForm.handle,
                     startDate: this.addEditForm.startDate,
                     endDate: this.addEditForm.endDate,
                     remark: this.addEditForm.remark,
                 }
-                $.post('http://121.36.166.78:8088/lsy/demo/task/add', params, (respones) => {
+				if("add" == this.dialogType){
+                $.post('http://localhost:8088/lsy/demo/task/add', params, (respones) => {
                     console.log(respones, 333)
 					this.dialogVisible = false
 					this.getList()
                 })
+				}
+				if("edit" == this.dialogType){
+				 $.post('http://localhost:8088/lsy/demo/task/edit', params, (respones) => {
+                    console.log(respones, 333)
+					this.dialogVisible = false
+					this.getList()
+                })
+				}
             },
             complete(taskId) {
                 const params = {
                     taskId: taskId,
                 }
-                $.post('http://121.36.166.78:8088/lsy/demo/task/finish', params, (respones) => {
+                $.post('http://localhost:8088/lsy/demo/task/finish', params, (respones) => {
                     console.log(respones, 333)
                     this.getList()
                 })
@@ -295,7 +310,7 @@
                 const params = {
                     taskId: taskId,
                 }
-                $.post('http://121.36.166.78:8088/lsy/demo/task/del', params, (respones) => {
+                $.post('http://localhost:8088/lsy/demo/task/del', params, (respones) => {
                     console.log(respones, 333)
                     this.getList()
                 })

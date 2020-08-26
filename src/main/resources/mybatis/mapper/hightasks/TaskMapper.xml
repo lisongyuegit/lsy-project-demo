@@ -27,6 +27,8 @@
         task_name as taskName,
         task_level as taskLevel,
         task_status as taskStatus,
+        task_analysis as taskAnalysis,
+        task_progress as taskProgress,
         handle as handle,
         start_date as startDate,
         end_date as endDate,
@@ -59,5 +61,6 @@
                 and date_format(t.start_date,'%Y-%m-%d ') >= #{queryMap.startDate}
             </if>
         </where>
+        order by t.task_level asc
     </select>
 </mapper>
