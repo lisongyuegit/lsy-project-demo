@@ -264,7 +264,7 @@
                 }
 
 
-                $.get('http://localhost:8088/lsy/demo/task/list', params, (respones) => {
+                $.get('http://121.36.166.78:8088/lsy/demo/task/list', params, (respones) => {
 
                     this.tableData = respones.result.records
                 })
@@ -283,14 +283,14 @@
                     remark: this.addEditForm.remark,
                 }
 				if("add" == this.dialogType){
-                $.post('http://localhost:8088/lsy/demo/task/add', params, (respones) => {
+                $.post('http://121.36.166.78:8088/lsy/demo/task/add', params, (respones) => {
                     console.log(respones, 333)
 					this.dialogVisible = false
 					this.getList()
                 })
 				}
 				if("edit" == this.dialogType){
-				 $.post('http://localhost:8088/lsy/demo/task/edit', params, (respones) => {
+				 $.post('http://121.36.166.78:8088/lsy/demo/task/edit', params, (respones) => {
                     console.log(respones, 333)
 					this.dialogVisible = false
 					this.getList()
@@ -301,7 +301,7 @@
                 const params = {
                     taskId: taskId,
                 }
-                $.post('http://localhost:8088/lsy/demo/task/finish', params, (respones) => {
+                $.post('http://121.36.166.78:8088/lsy/demo/task/finish', params, (respones) => {
                     console.log(respones, 333)
                     this.getList()
                 })
@@ -310,7 +310,7 @@
                 const params = {
                     taskId: taskId,
                 }
-                $.post('http://localhost:8088/lsy/demo/task/del', params, (respones) => {
+                $.post('http://121.36.166.78:8088/lsy/demo/task/del', params, (respones) => {
                     console.log(respones, 333)
                     this.getList()
                 })
