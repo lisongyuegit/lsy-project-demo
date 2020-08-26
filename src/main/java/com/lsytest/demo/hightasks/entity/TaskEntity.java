@@ -45,6 +45,16 @@ public class TaskEntity implements Serializable {
     @TableField("task_status")
     private String taskStatus;
     /**
+     * 任务分析
+     */
+    @TableField("task_analysis")
+    private String taskAnalysis;
+    /**
+     * 任务进展
+     */
+    @TableField("task_progress")
+    private String taskProgress;
+    /**
      *当前处理人
      */
     @TableField("handle")

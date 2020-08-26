@@ -40,9 +40,9 @@ public class TaskController {
         if (StringHelper.isBlank(ComUtil.objToStr(queryMap.get("startDate")))) {
             queryMap.put("startDate", LocalDate.now().toString());
         }
-        if (StringHelper.isBlank(ComUtil.objToStr(queryMap.get("taskStatus")))) {
-            queryMap.put("notTaskStatus", TaskStatusEnum.FINISH.getValue());
-        }
+//        if (StringHelper.isBlank(ComUtil.objToStr(queryMap.get("taskStatus")))) {
+//            queryMap.put("notTaskStatus", TaskStatusEnum.FINISH.getValue());
+//        }
         if (StringHelper.isNotBlank(ComUtil.objToStr(queryMap.get("taskStatus")))) {
             TaskStatusEnum.checkValue(ComUtil.objToStr(queryMap.get("taskStatus")));
         }
@@ -61,6 +61,15 @@ public class TaskController {
      */
     @PostMapping(value = "add")
     public ResultVo addTask(@ModelAttribute TaskEntity taskEntity, @ModelAttribute BaseDTO baseDTO) {
+        if (StringHelper.isBlank(taskEntity.getStartDate())) {
+            taskEntity.setStartDate(LocalDate.now().toString());
+        }
+        if (StringHelper.isBlank(taskEntity.getTaskLevel())) {
+            taskEntity.setTaskLevel(TaskLevelEnum.ONE.getValue());
+        }
+        if (StringHelper.isBlank(taskEntity.getTaskStatus())) {
+            taskEntity.setTaskStatus(TaskStatusEnum.UNDERWAY.getValue());
+        }
         return taskService.addTask(taskEntity, baseDTO);
     }
 
@@ -135,6 +144,7 @@ public class TaskController {
             resultVo.setError_info("任务不存在");
             return resultVo;
         }
+        respTask.setEndDate(LocalDate.now().toString());
         respTask.setTaskStatus(TaskStatusEnum.FINISH.getValue());
         taskService.updateById(respTask);
         resultVo.setError_no(0);
