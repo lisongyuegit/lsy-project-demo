@@ -15,19 +15,20 @@
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <style>
         .el-table .level1 {
-            /* background: red;*/
+             color: red;
+
         }
 
         .el-table .level2 {
-            /* background: ; */
+             color: #3300ff; 
         }
 
         .el-table .level3 {
-            /* background: #fdf9e6; */
+             color: #FFA500; 
         }
 
         .el-table .level4 {
-            /* background: #fdf5e6; */
+             /*color: 	#3300ff; */
         }
     </style>
 </head>
@@ -68,7 +69,7 @@
             <el-table-column prop="userId" label="用户id">
             </el-table-column>
             -->
-        <el-table-column prop="taskName" label="任务名称">
+        <el-table-column prop="taskName" label="任务名称" width="400%" >
         </el-table-column>
         <!--
         <el-table-column prop="taskLevel" label="任务等级">
@@ -124,6 +125,9 @@
             </el-form-item>
             <el-form-item label="任务分析" prop="taskAnalysis">
                 <el-input type="textarea" v-model="addEditForm.taskAnalysis"></el-input>
+            </el-form-item>
+			<el-form-item label="任务进展" prop="taskProgress">
+                <el-input type="textarea" v-model="addEditForm.taskProgress"></el-input>
             </el-form-item>
             <el-form-item label="处理时间" required>
                 <el-col :span="11">
