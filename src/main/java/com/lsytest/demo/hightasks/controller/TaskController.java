@@ -37,9 +37,6 @@ public class TaskController {
      */
     @GetMapping(value = "list")
     public ResultVo list(@RequestParam Map queryMap, @ModelAttribute BaseDTO baseDTO) {
-        if (StringHelper.isBlank(ComUtil.objToStr(queryMap.get("startDate")))) {
-            queryMap.put("startDate", LocalDate.now().toString());
-        }
         if (StringHelper.isBlank(ComUtil.objToStr(queryMap.get("taskStatus")))) {
             queryMap.put("notTaskStatus", TaskStatusEnum.FINISH.getValue());
         }
