@@ -51,6 +51,7 @@
             <el-option label="完成" value="9"></el-option>
         </el-select>
         <el-select v-model="taskTime" placeholder="请选择处理时间">
+			<el-option label="今日" value="0"></el-option>
             <el-option label="昨日" value="1"></el-option>
             <el-option label="本周" value="2"></el-option>
             <el-option label="本月" value="3"></el-option>
@@ -225,7 +226,10 @@
                     } else if (val == 3) {
                         this.filterForm.startDate = moment().date(1).format('YYYY-MM-DD') + ' 00:00:00'
                         this.filterForm.endDate = moment().format('YYYY-MM-DD') + ' 23:59:59'
-                    }
+                    }else if(val == 0){
+						this.filterForm.startDate = moment().subtract(0, 'd').format('YYYY-MM-DD')
+                        this.filterForm.endDate = moment().subtract(0, 'd').format('YYYY-MM-DD')
+					}
 
                 } else {
                     this.filterForm.startDate = ''
