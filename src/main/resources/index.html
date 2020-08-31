@@ -70,15 +70,17 @@
             <el-table-column prop="userId" label="用户id">
             </el-table-column>
             -->
-        <el-table-column prop="taskName" label="任务名称" width="400%" >
+        <el-table-column type="index"  width="50">
+        </el-table-column>
+        <el-table-column prop="taskName" label="任务名称" width="400%"  show-overflow-tooltip>
         </el-table-column>
         <!--
         <el-table-column prop="taskLevel" label="任务等级">
         </el-table-column>
         -->
-        <el-table-column prop="taskAnalysis" label="任务分析">
+        <el-table-column prop="taskAnalysis" label="任务分析" show-overflow-tooltip>
         </el-table-column>
-		 <el-table-column prop="taskProgress" label="任务进展">
+		 <el-table-column prop="taskProgress" label="任务进展" show-overflow-tooltip>
         </el-table-column>
         <el-table-column prop="handle" label="当前处理人">
         </el-table-column>
