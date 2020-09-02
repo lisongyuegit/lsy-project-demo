@@ -60,6 +60,15 @@
             <if test="null != queryMap.startDate and '' != queryMap.startDate">
                 and date_format(t.start_date,'%Y-%m-%d ') >= #{queryMap.startDate}
             </if>
+            <if test="null != queryMap.endDate and '' != queryMap.endDate">
+                and date_format(t.start_date,'%Y-%m-%d ') &lt;= #{queryMap.endDate}
+            </if>
+            <if test="null != queryMap.finishStartDate and '' != queryMap.finishStartDate">
+                and date_format(t.end_date,'%Y-%m-%d ') >= #{queryMap.finishStartDate}
+            </if>
+            <if test="null != queryMap.finishEndDate and '' != queryMap.finishEndDate">
+                and date_format(t.end_date,'%Y-%m-%d ') &lt;= #{queryMap.finishEndDate}
+            </if>
         </where>
         order by t.task_level asc
     </select>
