@@ -1,5 +1,6 @@
 package com.lsytest.demo.hightasks.controller;
 
+import com.lsy.base.date.DateHelper;
 import com.lsy.base.result.ResultVo;
 import com.lsy.base.string.StringHelper;
 import com.lsy.mybatisplus.mapper.EntityWrapper;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -50,6 +52,7 @@ public class TaskController {
         if (StringHelper.isNotBlank(ComUtil.objToStr(queryMap.get("taskLevel")))) {
             TaskLevelEnum.checkValue(ComUtil.objToStr(queryMap.get("taskLevel")));
         }
+        queryMap.put("userId","101");
         return taskService.queryList(queryMap, baseDTO);
     }
 
@@ -71,6 +74,8 @@ public class TaskController {
         if (StringHelper.isBlank(taskEntity.getTaskStatus())) {
             taskEntity.setTaskStatus(TaskStatusEnum.UNDERWAY.getValue());
         }
+        taskEntity.setUserId("101");
+        taskEntity.setCreateBy("101");
         return taskService.addTask(taskEntity, baseDTO);
     }
 
@@ -97,6 +102,7 @@ public class TaskController {
             resultVo.setError_info("任务不存在");
             return resultVo;
         }
+        taskEntity.setUpdateBy("101");
         taskEntity.setId(respTask.getId());
         return taskService.editTask(taskEntity, baseDTO);
     }
@@ -145,6 +151,8 @@ public class TaskController {
             resultVo.setError_info("任务不存在");
             return resultVo;
         }
+        respTask.setUpdateBy("101");
+        respTask.setUpdateDate(DateHelper.formatTime(new Date()));
         respTask.setEndDate(LocalDate.now().toString());
         respTask.setTaskStatus(TaskStatusEnum.FINISH.getValue());
         taskService.updateById(respTask);
