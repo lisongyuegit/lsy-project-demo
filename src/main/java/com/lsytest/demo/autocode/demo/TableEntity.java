@@ -10,44 +10,153 @@ import java.util.List;
  * @date: 2019/10/9 21:05
  */
 public class TableEntity {
+    /**
+     *表名
+     */
     private String tableName;
+    /**
+     * 表描述
+     */
     private String tableDesc;
+    /**
+     * 字段属性集合
+     */
     private List<FieldEntity> fieldEntityList;
+    /**
+     * apiEntity类名
+     */
     private String apiEntityName;
+    /**
+     * apiService类名
+     */
     private String apiServiceName;
+    /**
+     * serMapper类名
+     */
     private String serMapperName;
+    /**
+     * serMapperXml类名
+     */
     private String serMapperXmlName;
+    /**
+     * serImpl类名
+     */
     private String serImplName;
+    /**
+     * private String webController类名
+     */
     private String webControllerName;
+    /**
+     * apiEntity文件路径
+     */
     private String apiEntityPath;
+    /**
+     * apiService文件路径
+     */
     private String apiServicePath;
+    /**
+     * serMapper文件路径
+     */
     private String serMapperPath;
+    /**
+     * serImpl文件路径
+     */
     private String serImplPath;
+    /**
+     * serMapperXml文件路径
+     */
     private String serMapperXmlPath;
+    /**
+     * serBeanXml文件路径
+     */
     private String serBeanXmlPath;
+    /**
+     * serDubboXml文件路径
+     */
     private String serDubboXmlPath;
+    /**
+     * webController文件路径
+     */
     private String webControllerPath;
+    /**
+     * webDubboXml文件路径
+     */
     private String webDubboXmlPath;
+    /**
+     * apiEntit内容
+     */
     private String apiEntityContent;
+    /**
+     * apiService内容
+     */
     private String apiServiceContent;
+    /**
+     * serMapper内容
+     */
     private String serMapperContent;
+    /**
+     * serImpl内容
+     */
     private String serImplContent;
+    /**
+     * MapperXml内容
+     */
     private String serMapperXmlContent;
+    /**
+     * serBeanXml内容
+     */
     private String serBeanXmlContent;
+    /**
+     * serDubboXml内容
+     */
     private String serDubboXmlContent;
+    /**
+     * webController内容
+     */
     private String webControllerContent;
+    /**
+     * webDubboXml内容
+     */
     private String webDubboXmlContent;
-
+    /**
+     * api端Entity导入路径
+     */
     private String apiEntityImport;
+    /**
+     * api端Service导入路径
+     */
     private String apiServiceImport;
+    /**
+     * service端Mapper导入路径
+     */
     private String serMapperImport;
+    /**
+     * service端Impl导入路径
+     */
     private String serImplImport;
+    /**
+     * service端
+     */
     private String serMapperXmlImport;
-
+    /**
+     * api端Entity包路径
+     */
     private String apiEntityPackage;
+    /**
+     * api端Service包路径
+     */
     private String apiServicePackage;
+    /**
+     * service端Mapper包路径
+     */
     private String serMapperPackage;
+    /**
+     * service端Impl包路径
+     */
     private String serImplPackage;
+    /**
+     * web端Controller包路径
+     */
     private String webControllerPackage;
 
     public String getTableName() {
