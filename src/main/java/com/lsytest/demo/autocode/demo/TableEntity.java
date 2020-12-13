@@ -9,7 +9,7 @@ import java.util.List;
  * @version: 1.0
  * @date: 2019/10/9 21:05
  */
-public class FileCons {
+public class TableEntity {
     private String tableName;
     private String tableDesc;
     private List<FieldEntity> fieldEntityList;

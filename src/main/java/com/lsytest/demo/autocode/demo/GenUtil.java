@@ -11,7 +11,7 @@ import java.util.List;
  * @version: 1.0
  * @date: 2019/10/9 21:05
  */
-public class FenUtil {
+public class GenUtil {
     public static void main(String[] args) {
         String  resp = getEntityName("t_update_date_time");
         System.out.println(resp);

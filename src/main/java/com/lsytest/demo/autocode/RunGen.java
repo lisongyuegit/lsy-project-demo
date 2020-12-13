@@ -11,11 +11,11 @@ import com.lsytest.demo.autocode.demo.*;
  */
 public class RunGen {
     public static void main(String[] args) {
-        FileCons fileCons = AnalysisTable.start(GenConfig.TABLE_SQL);
+        TableEntity tableEntity = AnalysisTable.start(GenConfig.TABLE_SQL);
         System.out.println("数据表解析完成");
-        GenFileContent.startGenFileContent(fileCons);
+        GenFileContent.startGenFileContent(tableEntity);
         System.out.println("数据组装完成");
-        GenFile.startGenFile(fileCons);
+        GenFile.startGenFile(tableEntity);
         System.out.println("文件生成完成");
     }
 }

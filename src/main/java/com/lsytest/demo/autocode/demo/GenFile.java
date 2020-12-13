@@ -14,78 +14,78 @@ import java.io.IOException;
  */
 public class GenFile {
 
-    public static void startGenFile(FileCons fileCons) {
-        genApiEntity(fileCons);
-        genApiService(fileCons);
-        genSerMapper(fileCons);
-        genSerImpl(fileCons);
-        genSerMapperXml(fileCons);
-        genWebController(fileCons);
-        genSerBeanXml(fileCons);
-        genSerDubboXml(fileCons);
-        genWebDubboXml(fileCons);
+    public static void startGenFile(TableEntity tableEntity) {
+        genApiEntity(tableEntity);
+        genApiService(tableEntity);
+        genSerMapper(tableEntity);
+        genSerImpl(tableEntity);
+        genSerMapperXml(tableEntity);
+        genWebController(tableEntity);
+        genSerBeanXml(tableEntity);
+        genSerDubboXml(tableEntity);
+        genWebDubboXml(tableEntity);
     }
 
     //10.生成bean-xml
-    private static void genSerBeanXml(FileCons fileCons) {
-        String content = fileCons.getSerBeanXmlContent();
-        String pathStr = fileCons.getSerBeanXmlPath();
-        FenUtil.tihuan(pathStr, content, "</beans>");
+    private static void genSerBeanXml(TableEntity tableEntity) {
+        String content = tableEntity.getSerBeanXmlContent();
+        String pathStr = tableEntity.getSerBeanXmlPath();
+        GenUtil.tihuan(pathStr, content, "</beans>");
     }
 
     //11.生成ser-dubbo-xml
-    private static void genSerDubboXml(FileCons fileCons) {
-        String content = fileCons.getSerDubboXmlContent();
-        String pathStr = fileCons.getSerDubboXmlPath();
-        FenUtil.tihuan(pathStr, content, "</beans>");
+    private static void genSerDubboXml(TableEntity tableEntity) {
+        String content = tableEntity.getSerDubboXmlContent();
+        String pathStr = tableEntity.getSerDubboXmlPath();
+        GenUtil.tihuan(pathStr, content, "</beans>");
     }
 
     //12.生成web-dubbo-xml
-    private static void genWebDubboXml(FileCons fileCons) {
-        String content = fileCons.getWebDubboXmlContent();
-        String pathStr = fileCons.getWebDubboXmlPath();
-        FenUtil.tihuan(pathStr, content, "</beans>");
+    private static void genWebDubboXml(TableEntity tableEntity) {
+        String content = tableEntity.getWebDubboXmlContent();
+        String pathStr = tableEntity.getWebDubboXmlPath();
+        GenUtil.tihuan(pathStr, content, "</beans>");
     }
 
     //5.生成api-entity
-    private static void genApiEntity(FileCons fileCons) {
-        String content = fileCons.getApiEntityContent();
-        String pathStr = fileCons.getApiEntityPath();
+    private static void genApiEntity(TableEntity tableEntity) {
+        String content = tableEntity.getApiEntityContent();
+        String pathStr = tableEntity.getApiEntityPath();
         addFile(content, pathStr);
     }
 
     //7.生成ser-mapper
-    private static void genSerMapper(FileCons fileCons) {
-        String content = fileCons.getSerMapperContent();
-        String pathStr = fileCons.getSerMapperPath();
+    private static void genSerMapper(TableEntity tableEntity) {
+        String content = tableEntity.getSerMapperContent();
+        String pathStr = tableEntity.getSerMapperPath();
         addFile(content, pathStr);
     }
 
     //6.生成api-service
-    private static void genApiService(FileCons fileCons) {
-        String content = fileCons.getApiServiceContent();
-        String pathStr = fileCons.getApiServicePath();
+    private static void genApiService(TableEntity tableEntity) {
+        String content = tableEntity.getApiServiceContent();
+        String pathStr = tableEntity.getApiServicePath();
         addFile(content, pathStr);
     }
 
     //8.生成ser-impl
-    private static void genSerImpl(FileCons fileCons) {
-        String content = fileCons.getSerImplContent();
-        String pathStr = fileCons.getSerImplPath();
+    private static void genSerImpl(TableEntity tableEntity) {
+        String content = tableEntity.getSerImplContent();
+        String pathStr = tableEntity.getSerImplPath();
         addFile(content, pathStr);
     }
 
     //10.生成bean-xml
-    private static void genSerMapperXml(FileCons fileCons) {
-        String content = fileCons.getSerMapperXmlContent();
-        String pathStr = fileCons.getSerMapperXmlPath();
+    private static void genSerMapperXml(TableEntity tableEntity) {
+        String content = tableEntity.getSerMapperXmlContent();
+        String pathStr = tableEntity.getSerMapperXmlPath();
         addFile(content, pathStr);
     }
 
     //9.生成web-controller
-    private static void genWebController(FileCons fileCons) {
-        String content = fileCons.getWebControllerContent();
-        String pathStr = fileCons.getWebControllerPath();
+    private static void genWebController(TableEntity tableEntity) {
+        String content = tableEntity.getWebControllerContent();
+        String pathStr = tableEntity.getWebControllerPath();
         addFile(content, pathStr);
     }
 

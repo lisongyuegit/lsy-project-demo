@@ -23,18 +23,18 @@ import java.util.List;
  * @date: 2019/10/9 21:05
  */
 public class AnalysisTable {
-    public static FileCons start(String tableStr) {
-        FileCons fileCons = new FileCons();
-        getTableInfo(fileCons, tableStr);
-        className(fileCons);
-        path(fileCons);
-        impl(fileCons);
-        setPackage(fileCons);
-        return fileCons;
+    public static TableEntity start(String tableStr) {
+        TableEntity tableEntity = new TableEntity();
+        getTableInfo(tableEntity, tableStr);
+        className(tableEntity);
+        path(tableEntity);
+        impl(tableEntity);
+        setPackage(tableEntity);
+        return tableEntity;
     }
 
     //表名/字段
-    private static void getTableInfo(FileCons fileCons, String tableStr) {
+    private static void getTableInfo(TableEntity tableEntity, String tableStr) {
         List<FieldEntity> entityList = new ArrayList<>();
 
 
@@ -58,14 +58,14 @@ public class AnalysisTable {
             Collection<TableStat.Column> list = visitor.getColumns();
 
             String tempTableName = ((MySqlCreateTableStatement) stmt).getTableSource().toString();
-            tempTableName = FenUtil.replace(tempTableName);
+            tempTableName = GenUtil.replace(tempTableName);
             System.out.println("表名为:" + tempTableName);
-            fileCons.setTableName(tempTableName);
+            tableEntity.setTableName(tempTableName);
 
             String tempTableDesc = ((MySqlCreateTableStatement) stmt).getComment().toString();
-            tempTableDesc = FenUtil.replace(tempTableDesc);
+            tempTableDesc = GenUtil.replace(tempTableDesc);
             System.out.println("表注释为:" + tempTableDesc);
-            fileCons.setTableDesc(tempTableDesc);
+            tableEntity.setTableDesc(tempTableDesc);
             try {
                 List<SQLTableElement> sqlTableElementList = ((MySqlCreateTableStatement) stmt).getTableElementList();
                 for (SQLTableElement sqlTableElement : sqlTableElementList) {
@@ -73,20 +73,20 @@ public class AnalysisTable {
                     if (StringHelper.isNotEmpty(ComUtil.objToStr(((SQLColumnDefinition) sqlTableElement).getName()))) {
                         System.out.println("aaaaaa : " + sqlTableElement);
                         String tempFileDesc = ComUtil.objToStr(((SQLColumnDefinition) sqlTableElement).getComment());
-                        tempFileDesc = FenUtil.replace(tempFileDesc);
+                        tempFileDesc = GenUtil.replace(tempFileDesc);
                         System.out.println("注释为:" + tempFileDesc);
                         fieldEntity.setFieldDesc(tempFileDesc);
 
                         String tempFileType = ComUtil.objToStr(((SQLColumnDefinition) sqlTableElement).getDataType());
-                        tempFileType = FenUtil.typeTran(tempFileType);
+                        tempFileType = GenUtil.typeTran(tempFileType);
                         System.out.println("类型为:" + tempFileType);
                         fieldEntity.setFieldType(tempFileType);
 
                         String tempFileName = ComUtil.objToStr(((SQLColumnDefinition) sqlTableElement).getName());
-                        tempFileName = FenUtil.replace(tempFileName);
+                        tempFileName = GenUtil.replace(tempFileName);
                         System.out.println("字段为:" + tempFileName);
                         fieldEntity.setFieldName(tempFileName);
-                        fieldEntity.setFieldAttribute(FenUtil.getAttribute(fieldEntity.getFieldName()));
+                        fieldEntity.setFieldAttribute(GenUtil.getAttribute(fieldEntity.getFieldName()));
                         entityList.add(fieldEntity);
                     }
                 }
@@ -96,47 +96,47 @@ public class AnalysisTable {
             }
 
         }
-        fileCons.setFieldEntityList(entityList);
+        tableEntity.setFieldEntityList(entityList);
     }
 
     //类名
-    private static void className(FileCons fileCons) {
-        String entityName = FenUtil.getEntityName(fileCons.getTableName());
-        fileCons.setApiEntityName(entityName + "Entity");
-        fileCons.setSerMapperName(entityName + "Mapper");
-        fileCons.setSerMapperXmlName(entityName + "Mapper");
-        fileCons.setApiServiceName("I" + entityName + "Service");
-        fileCons.setSerImplName(entityName + "ServiceImpl");
-        fileCons.setWebControllerName(entityName + "Controller");
+    private static void className(TableEntity tableEntity) {
+        String entityName = GenUtil.getEntityName(tableEntity.getTableName());
+        tableEntity.setApiEntityName(entityName + "Entity");
+        tableEntity.setSerMapperName(entityName + "Mapper");
+        tableEntity.setSerMapperXmlName(entityName + "Mapper");
+        tableEntity.setApiServiceName("I" + entityName + "Service");
+        tableEntity.setSerImplName(entityName + "ServiceImpl");
+        tableEntity.setWebControllerName(entityName + "Controller");
     }
 
     //路径
-    private static void path(FileCons fileCons) {
-        fileCons.setApiEntityPath(FenUtil.getNowPath() + fileCons.getApiEntityName() + ".java");
-        fileCons.setApiServicePath(FenUtil.getNowPath() + fileCons.getApiServiceName() + ".java");
-        fileCons.setSerMapperPath(FenUtil.getNowPath() + fileCons.getSerMapperName() + ".java");
-        fileCons.setSerImplPath(FenUtil.getNowPath() + fileCons.getSerImplName() + ".java");
-        fileCons.setSerMapperXmlPath(FenUtil.getNowPath() + fileCons.getSerMapperXmlName() + ".xml");
-        fileCons.setWebControllerPath(FenUtil.getNowPath() + fileCons.getWebControllerName() + ".java");
-        fileCons.setSerDubboXmlPath(GenConfig.SER_DUBBO_XML_PATH);
-        fileCons.setWebDubboXmlPath(GenConfig.WEB_DUBBO_XML_PATH);
-        fileCons.setSerBeanXmlPath(GenConfig.SER_BEAN_XML_PATH);
+    private static void path(TableEntity tableEntity) {
+        tableEntity.setApiEntityPath(GenUtil.getNowPath() + tableEntity.getApiEntityName() + ".java");
+        tableEntity.setApiServicePath(GenUtil.getNowPath() + tableEntity.getApiServiceName() + ".java");
+        tableEntity.setSerMapperPath(GenUtil.getNowPath() + tableEntity.getSerMapperName() + ".java");
+        tableEntity.setSerImplPath(GenUtil.getNowPath() + tableEntity.getSerImplName() + ".java");
+        tableEntity.setSerMapperXmlPath(GenUtil.getNowPath() + tableEntity.getSerMapperXmlName() + ".xml");
+        tableEntity.setWebControllerPath(GenUtil.getNowPath() + tableEntity.getWebControllerName() + ".java");
+        tableEntity.setSerDubboXmlPath(GenConfig.SER_DUBBO_XML_PATH);
+        tableEntity.setWebDubboXmlPath(GenConfig.WEB_DUBBO_XML_PATH);
+        tableEntity.setSerBeanXmlPath(GenConfig.SER_BEAN_XML_PATH);
     }
 
     //impl
-    private static void impl(FileCons fileCons) {
-        fileCons.setApiEntityImport(fileCons.getApiEntityName());
-        fileCons.setApiServiceImport(fileCons.getApiServiceName());
-        fileCons.setSerMapperImport(fileCons.getSerMapperName());
-        fileCons.setSerImplImport(fileCons.getSerImplName());
-        fileCons.setSerMapperXmlImport(fileCons.getSerMapperXmlName());
+    private static void impl(TableEntity tableEntity) {
+        tableEntity.setApiEntityImport(tableEntity.getApiEntityName());
+        tableEntity.setApiServiceImport(tableEntity.getApiServiceName());
+        tableEntity.setSerMapperImport(tableEntity.getSerMapperName());
+        tableEntity.setSerImplImport(tableEntity.getSerImplName());
+        tableEntity.setSerMapperXmlImport(tableEntity.getSerMapperXmlName());
     }
     //Package
-    private static void setPackage(FileCons fileCons) {
-        fileCons.setApiEntityPackage("");
-        fileCons.setApiServicePackage("");
-        fileCons.setSerMapperPackage("");
-        fileCons.setSerImplPackage("");
-        fileCons.setWebControllerPackage("");
+    private static void setPackage(TableEntity tableEntity) {
+        tableEntity.setApiEntityPackage("");
+        tableEntity.setApiServicePackage("");
+        tableEntity.setSerMapperPackage("");
+        tableEntity.setSerImplPackage("");
+        tableEntity.setWebControllerPackage("");
     }
 }
